@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociais - Mundo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <header>
+        <h1>Relatório das redes sociais</h1>
+        <nav>
+            <a href="index.html">Mundo</a>
+            <a href="minha-escola.html">Minha escola</a>
+        </nav>
+    </header>
+    <main class="graficos-section">
+        <section id="graficos-container" class="graficos-container">
+            <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos de Redes Sociais</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        canvas {
+            max-width: 600px;
+            margin: 85px auto;
+        }
+        .buttons {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 20px 20px;
+            font-size: 16px;
+            margin: 0px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Uso de Redes Sociais</h1>
+    <div class="buttons">
+    </div>
+    <canvas id="grafico"></canvas>
+
+    <script>
+        const ctx = document.getElementById('grafico').getContext('2d');
+        let chart;
+
+        const dadosMundo = {
+            labels: ['Facebook', 'Instagram', 'TikTok', 'Twitter', 'Outros'],
+            datasets: [{
+                label: 'Uso em bilhões de usuários',
+                data: [2.9, 2.3, 1.7, 0.4, 0.8],
+                backgroundColor: ['#4267B2', '#E4405F', '#69C9D0', '#1DA1F2', '#FFCD56'],
+            }]
+        };
+
+        const dadosEscola = {
+            labels: ['Instagram', 'TikTok', 'WhatsApp', 'Snapchat', 'Outros'],
+            datasets: [{
+                label: 'Uso em % dos alunos',
+                data: [70, 65, 80, 50, 30],
+                backgroundColor: ['#E4405F', '#69C9D0', '#25D366', '#FFFC00', '#FF9F40'],
+            }]
+        };
+
+        function criarGrafico(dados) {
+            if (chart) chart.destroy(); 
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: dados,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Gráfico de Redes Sociais'
+                        }
+                    }
+                }
+            });
+        }
+
+        function mostrarGrafico(tipo) {
+            if (tipo === 'mundo') {
+                criarGrafico(dadosMundo);
+            } else if (tipo === 'escola') {
+                criarGrafico(dadosEscola);
+            }
+        }
+
+        
+        mostrarGrafico('mundo');
+    </script>
+</body>
+</html>
+
+        </section>
+    </main>
+    <footer>
+        <p>Desenvolvido por Isabele Lunardi</p>
+    </footer>
+    <script type="module" src="graficos/common.js"></script>
+    <script type="module" src="graficos/informacoesGlobais.js"></script>
+    <script type="module" src="graficos/quantidadeUsuarios.js"></script>
+    <script type="module" src="graficos/redesFavoritasMundo.js"></script>
+</body>
+</html>
